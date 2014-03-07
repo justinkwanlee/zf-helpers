@@ -1,48 +1,5 @@
 <?php
-
-/**
- * 
- * Helper for setting and retrieving Link elements for HTML head section
- * with the added twist of minifying the css files.
- *
- * * ** PREREQUISITES **
- * This file expects that you have installed minify in ../ZendFramworkProject/Public/min 
- * and that it is working. If your location has changed, modify 
- * $this->$_minifyLocation to your current location.
- * 
- * ** INSTALLATION **
- * Simply drop this file into your ../ZendFramworkProject/application/views/helpers
- * directory.
- * 
- * ** USAGE **
- * In your Layout or View scripts, you can simply call minifyHeadLink
- * in the same way that you used to call headLink. Here is an example:
- * 
-  echo $this->minifyHeadLink('/favicon.ico')             // Whatever was already loaded from Controller.
-  ->prependStylesheet('http://example.com/js/sample.css')// 6th
-  ->prependStylesheet('/js/jqModal.css')                 // 5th
-  ->prependStylesheet('/js/jquery.alerts.css')           // 4th
-  ->prependStylesheet('/templates/main.css')             // 3rd
-  ->prependStylesheet('/css/project.css.php')            // 2nd
-  ->prependStylesheet('/css/jquery.autocomplete.css')    // 1st
-  ->appendStylesheet('/css/ie6.css','screen','lt IE 7'); // APPEND to make it Last
- *
- * 
- * This can be interesting because you will notice that 2nd is a php file, and we
- * have a reference to a favicon link in there as well as a reference to a css file on
- * another website. Because minify can't do anything with that php file (runtime configured 
- * css file) nor with CSS on other websites, and order is important,you would notice that 
- * the output in your browser will looks something like:
- * 
-   <link href="/min/?f=/css/jquery.autocomplete.css" media="screen" rel="stylesheet" type="text/css" />
-   <link href="/css/project.css.php" media="screen" rel="stylesheet" type="text/css" />
-   <link href="/min/?f=/templates/main.css,/js/jquery.alerts.css,/js/jqModal.css" media="screen" 
-               rel="stylesheet" type="text/css" />
-   <link href="http://example.com/js/sample.css" media="screen" rel="stylesheet" type="text/css" />
-   <link href="/favicon.ico" rel="shortcut icon" />
-   <!--[if lt IE 7]> <link href="/css/ie6.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
-
- *
+/*
  *
  * @see        http://code.google.com/p/minify/
  * @package    Zend_View
